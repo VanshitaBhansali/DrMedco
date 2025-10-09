@@ -1,1 +1,574 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DrMedoc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+       header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* optional for better visibility */
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+}
+.logo a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer; /* shows pointer on hover */
+  font-weight: 700;
+  font-size: 18px;
+}
+
+
+
+
+/* Center navigation */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Book Call Button (Right Side) */
+.header-btn {
+  margin-left: auto;
+}
+
+
+
+        .btn-primary {
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+        .book-call-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+        }
+
+        .book-call-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #000;
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2rem;
+            background-image: radial-gradient(circle at 20% 50%, rgba(127, 255, 0, 0.1), transparent 50%),
+                              radial-gradient(circle at 80% 50%, rgba(127, 255, 0, 0.05), transparent 50%);
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            color: #999;
+            max-width: 500px;
+            margin: 0 auto 1rem;
+            line-height: 1.5;
+        }
+
+        .emoji-indicator {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Contact Form Section */
+        .contact-form-container {
+            max-width: 550px;
+            margin: -50px auto 4rem;
+            margin-top:20px;
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-header {
+            text-align: center;
+            color: #666;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #7FFF00;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: #7FFF00;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(127, 255, 0, 0.3);
+        }
+
+        .contact-email {
+            text-align: center;
+            margin-top: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .contact-email a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon-img {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .social-icon span {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 4rem 2rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            color: #7FFF00;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-column h3::before {
+            content: "▸";
+            margin-right: 0.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #7FFF00;
+        }
+
+        .newsletter-section {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #333;
+            border-radius: 25px;
+            color: #fff;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 2rem;
+            background-color: #7FFF00;
+            color: #000;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer-logo {
+            text-align: center;
+            font-size: 5rem;
+            font-weight: bold;
+            color: #7FFF00;
+            letter-spacing: -5px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .social-icons {
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-logo {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+      <!-- Header/Navigation -->
+   <header>
+<div class="logo">
+  <a href="index.html">Dr Medoc</a>
+</div>
+
+  <nav>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="testimonial.html">Testimonial</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-btn">
+    <a href="#" class="btn-primary">Book Call</a>
+  </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Let's Chat – We Don't Bite! ;)</h1>
+        <p>Have a question, a suggestion, or just want to share your favorite meme? Whatever it is, we're all ears!</p>
+        <p>Send us a message, and let's make things happen! 😊</p>
+    </section>
+
+    <!-- Contact Form -->
+    <div class="contact-form-container">
+        <div class="form-header">SEND US A MESSAGE</div>
+        <form>
+            <div class="form-group">
+                <input type="text" placeholder="Name" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Enter Subject">
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Enter your Message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        
+        <div class="contact-email">
+            DIRECT EMAIL<br>
+            <a href="mailto:business@drmedoc.com">business@drmedoc.com</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="#" class="social-icon">
+                <div class="social-icon-img">📧</div>
+                <span>Instagram</span>
+            </a>
+            <a href="#" class="social-icon">
+                <div class="social-icon-img">f</div>
+                <span>Facebook</span>
+            </a>
+            <a href="#" class="social-icon">
+                <div class="social-icon-img">X</div>
+                <span>Twitter</span>
+            </a>
+            <a href="#" class="social-icon">
+                <div class="social-icon-img">in</div>
+                <span>LinkedIn</span>
+            </a>
+            <a href="#" class="social-icon">
+                <div class="social-icon-img">▶</div>
+                <span>YouTube</span>
+            </a>
+        </div>
+    </div>
+
+   
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Home</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>LinkedIn</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="newsletter-section">
+            <h3>Subscribe to the newsletter</h3>
+            <form class="newsletter-form">
+                <input type="email" placeholder="email@domain.com" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="footer-logo">DRMEDOC</div>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+            <div class="copyright">©DrMedoc &nbsp;&nbsp;&nbsp; Made with Passion</div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(item) {
+            item.classList.toggle('active');
+        }
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Newsletter submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
