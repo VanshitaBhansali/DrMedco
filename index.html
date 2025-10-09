@@ -18,6 +18,7 @@
             color: #000;
             overflow-x: hidden;
         }
+/* Base header */
 header {
   display: flex;
   align-items: center;
@@ -27,34 +28,17 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* optional for better visibility */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.logo {
-  font-size: 18px;
-  font-weight: 700;
-}
 .logo a {
   text-decoration: none;
   color: #000;
-  cursor: pointer; /* shows pointer on hover */
   font-weight: 700;
   font-size: 18px;
 }
 
-
-
-
-/* Center navigation */
-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
+/* Desktop nav */
 nav ul {
   display: flex;
   list-style: none;
@@ -69,28 +53,58 @@ nav a {
   font-weight: 500;
 }
 
-/* Book Call Button (Right Side) */
-.header-btn {
-  margin-left: auto;
+/* Buttons */
+.header-btn .desktop-btn {
+  display: inline-block;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #333;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+    z-index: 1001; /* higher than nav */
+
+}
+.mobile-btn{
+    display:none;
+}
+.hamburger.toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 
-
-        .btn-primary {
-            background: #000;
-            color: #fff;
-            padding: 10px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-
-        .btn-primary:hover {
-            background: #333;
-        }
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
 
         /* Hero Section */
         .hero {
@@ -102,16 +116,29 @@ nav a {
         .hero h1 {
             font-size: 65px;
             font-weight: 700;
-            line-height: 1.2;
             margin-bottom: 20px;
-            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
+/* Star Rating */
+        .star-rating {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
 
+        .star {
+            color: var(--star-color);
+            font-size: 1.2rem;
+        }
+
+        .star.empty {
+            color: var(--border-color);
+        }
         .hero p {
-            font-size: 16px;
+            font-size: 15px;
             color: #666;
+            line-height: 1.5;
             margin-bottom: 30px;
             max-width: 600px;
             margin-left: auto;
@@ -138,14 +165,14 @@ nav a {
 .icon-grid {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   align-items: center;
 }
 
 /* Each row of icons */
 .icon-row {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -326,7 +353,6 @@ nav a {
 }
 
 .stat h3 {
-  color: #4caf50;
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 5px;
@@ -352,7 +378,7 @@ nav a {
 
 .btn-view:hover {
   transform: translateY(-3px);
-  background: #4caf50;
+  background: #3e423e;
 }
 
 
@@ -399,7 +425,7 @@ nav a {
 /* Hover effect */
 .benefit-card:hover {
   transform: translateY(-8px);
-  border-color: #6bbf44; /* light green border on hover */
+  border-color: #A2FC8D; /* light green border on hover */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   background: #494a48; /* soft green tint background */
   cursor: pointer;
@@ -420,10 +446,13 @@ nav a {
         .benefit-icon {
             width: 40px;
             height: 40px;
-            background: #00ff00;
+            background:  #A2FC8D;
             border-radius: 8px;
             margin-bottom: 20px;
         }
+           .benefit-icon img{
+            margin-top: 5px;
+        }  
 
         /* Results Section */
         .results-section {
@@ -432,11 +461,10 @@ nav a {
         }
 
         .results-header {
-            text-align: center;
+            text-align: left;
             margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 100px;
+            margin-right: 100px;
         }
 
         .results-header h2 {
@@ -454,7 +482,7 @@ nav a {
         }
 
         .result-item {
-            text-align: center;
+            text-align: left;
         }
 
         .result-number {
@@ -469,50 +497,202 @@ nav a {
             color: #666;
         }
 
-        /* Testimonials Section */
+         /* Testimonials Section */
+         /* Testimonials Section */
         .testimonials-section {
-            background: #000;
-            color: #fff;
-            padding: 100px 50px;
+            padding: 5rem 5%;
+            background: var(--card-bg);
+            transition: background-color 0.3s;
         }
 
-        .testimonials-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .testimonials-header h2 {
-            font-size: 42px;
-            font-weight: 700;
-        }
-
-        .testimonials-grid {
-            max-width: 1000px;
+        .testimonials-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
+        .testimonials-container h3{
+            font-size: 50px;
+            text-align: center;
+        }
 
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        /* Testimonial Card */
         .testimonial-card {
-            padding: 40px;
-            border-top: 1px solid #333;
-            margin-bottom: 20px;
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
         }
 
-        .testimonial-number {
-            color: #00ff00;
-            font-size: 24px;
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 8rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        /* Client Header */
+        .client-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .client-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(9, 9, 9, 0.3);
         }
 
+        .client-info h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .client-role {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Star Rating */
+        .star-rating {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .star {
+            color: var(--star-color);
+            font-size: 1.2rem;
+        }
+
+        .star.empty {
+            color: var(--border-color);
+        }
+
+        /* Testimonial Text */
         .testimonial-text {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
         }
 
-        .testimonial-author {
-            font-size: 14px;
-            color: #999;
+        /* Carousel Controls */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(5, 5, 5, 0.3);
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: var(--primary-color);
+            width: 30px;
+            border-radius: 6px;
+        }
+         /* Auto-play animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .carousel-slide.active {
+            animation: slideIn 0.5s ease-out;
         }
 
         /* FAQ Section */
@@ -524,6 +704,15 @@ nav a {
         .faq-header {
             text-align: center;
             margin-bottom: 60px;
+        }
+        .faq-explore{
+            font-size:10px;
+          white-space: normal;       /* allow wrapping */
+  word-wrap: break-word;     /* break long words if needed */
+  line-height: 1.5;          /* improves readability */
+  max-width: 600px;          /* limits width so it wraps nicely */
+  margin: 0 auto;            /* center the block */
+  text-align: center;        /* center the text inside the block */
         }
 
         .faq-header h2 {
@@ -677,14 +866,45 @@ nav a {
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
+             header {
+    padding: 15px 20px;
+  }
 
-            nav ul {
-                gap: 15px;
-            }
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* hide menu initially */
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
 
+  nav ul {
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+  }
+
+  nav.active {
+    right: 0; /* show menu when active */
+  }
+
+  .hamburger {
+    display: flex; /* show hamburger on mobile */
+  }
+
+  .header-btn .desktop-btn {
+    display: none; /* hide desktop button on mobile */
+  }
+
+  .mobile-btn {
+    display: block;
+  }
             .hero h1 {
                 font-size: 36px;
             }
@@ -723,31 +943,39 @@ nav a {
 </head>
 <body>
     <!-- Header/Navigation -->
-   <header>
-<div class="logo">
-  <a href="index.html">Dr Medoc</a>
-</div>
+  <header>
+  <div class="logo">
+    <a href="index.html">Dr Medoc</a>
+  </div>
 
   <nav>
-    <ul>
+    <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="service.html">Services</a></li>
       <li><a href="testimonial.html">Testimonial</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="btn-primary mobile-btn">Book Call</a></li> <!-- optional button in menu -->
     </ul>
   </nav>
 
   <div class="header-btn">
-    <a href="#" class="btn-primary">Book Call</a>
+    <a href="#" class="btn-primary desktop-btn">Book Call</a>
+  </div>
+
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </header>
+
 
     <!-- Hero Section -->
     <section class="hero">
         <h1>Transformation, Not Just Transaction: The Future of Medical Billing</h1>
         <p>Empowering Doctors with Tailored Billing Solutions, from Smart Claim Scrubbers to Advanced Reporting and Payment Automation.</p>
         <a href="#" class="btn-primary">Get Started</a>
-        <p class="happyclient">Over 30+ Happy clients</p>
+<p class="happyclient">⭐ ⭐ ⭐ ⭐ ⭐ Over 30+ Happy clients</p>
     </section>
 
     <!-- Trust Section -->
@@ -756,17 +984,17 @@ nav a {
 
   <div class="icon-grid">
     <div class="icon-row">
-      <div class="icon-circle">📱</div>
-      <div class="icon-circle">💼</div>
-      <div class="icon-circle">✏️</div>
-      <div class="icon-circle">📢</div>
-      <div class="icon-circle">🎯</div>
+      <div class="icon-circle"> <img src="/images/first-aid-kit_862032.png" alt="Robot" height="50" width="50"></div>
+      <div class="icon-circle"><img src="/images/hospital_2895071.png" alt="Robot" height="50" width="50"></div>
+      <div class="icon-circle"><img src="/images/people_13394252.png" alt="Robot" height="50" width="50"></div>
+      <div class="icon-circle"><img src="/images/file-security_6772404.png" alt="Robot" height="50" width="50"></div>
+      <div class="icon-circle"><img src="/images/dna_4356126.png" alt="Robot" height="50" width="50"></div>
     </div>
     <div class="icon-row">
-      <div class="icon-circle">🧪</div>
-      <div class="icon-circle">💊</div>
-      <div class="icon-circle">🏥</div>
-      <div class="icon-circle">⚕️</div>
+      <div class="icon-circle"><img src="/images/leadership_12302277.png" alt="Robot" height="50" width="50"></div>
+      <div class="icon-circle"><img src="/images/shield_15029556.png" alt="Robot" height="50" width="50"></div>
+      <div class="icon-circle"><img src="/images/medicine_285136.png" alt="Robot" height="50" width="50"></div>
+      <div class="icon-circle"><img src="/images/medicine_656019.png" alt="Robot" height="50" width="50"></div>
     </div>
   </div>
 </section>
@@ -857,32 +1085,32 @@ nav a {
         </div>
         <div class="benefits-grid">
             <div class="benefit-card">
-                <div class="benefit-icon"></div>
+                <div class="benefit-icon"><img src="/images/expert_12164572.png" alt="Robot" height="30" width="30"></div>
                 <h3>RCM Expertise</h3>
                 <p>Go beyond basic billing. Our teams are seasoned RCM specialists—proficient in complex coding, payer-specific rules, and denial logic. We provide the deep, current knowledge required to protect your revenue and ensure full compliance.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon"></div>
+                <div class="benefit-icon"><img src="/images/edit_14246011.png" alt="Robot" height="30" width="30"></div>
                 <h3>Enhanced Customization</h3>
                 <p>Your practice is unique, and your RCM should be too. We don't use templates. We build custom RCM teams and workflows perfectly tailored to your specialty, state regulations, and specific volume, ensuring a seamless fit and optimal results.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon"></div>
+                <div class="benefit-icon"><img src="/images/execute_9640682.png" alt="Robot" height="30" width="30"></div>
                 <h3>Expert Execution. Zero Delays</h3>
                 <p>Financial health demands speed and accuracy. Our high-caliber RCM talent handles claims, follow-up, and appeals with precision and consistency. This rapid, reliable execution means faster claims-to-cash conversion and a healthier bottom line for your practice.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon"></div>
+                <div class="benefit-icon"><img src="/images/security_6865385.png" alt="Robot" height="30" width="30"></div>
                 <h3>Full-Cycle Revenue Security</h3>
                 <p>We eliminate revenue leakage by providing end-to-end RCM management. Our expert teams handle everything from eligibility and meticulous claims submission to aggressive denial follow-up, ensuring your practice secures every dollar earned.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon"></div>
+                <div class="benefit-icon"><img src="/images/this-side-up_17607124.png" alt="Robot" height="30" width="30"></div>
                 <h3>Scalable Teams for Evolving projects</h3>
                 <p>Never worry about staff turnover or capacity issues again. Our staffing model grows and shrinks with your practice. Easily scale up your RCM team for large projects, mergers, or periods of rapid patient growth without the overhead.</p>
             </div>
             <div class="benefit-card">
-                <div class="benefit-icon"></div>
+                <div class="benefit-icon"><img src="/images/human-resources_12451671.png" alt="Robot" height="30" width="30"></div>
                 <h3>Agile RCM Staffing</h3>
                 <p>Our service is built for speed and flexibility. We quickly deploy high-caliber RCM talent and adapt workflows seamlessly to changes in payer rules, regulation updates, or sudden shifts in your patient volume. High quality, streamlined cost.</p>
             </div>
@@ -912,36 +1140,134 @@ nav a {
 
     <!-- Testimonials Section -->
     <section class="testimonials-section">
-        <div class="testimonials-header">
-            <h2>Real stories from beloved clients</h2>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-number">01</div>
-                <p class="testimonial-text">"I spent years dealing with billing staff turnover—the constant training and revenue dips were exhausting. Dr Medoc solved the headache of staffing entirely. We have a consistent, high-performing team, and my time is finally spent on patients, not payroll."</p>
-                <div class="testimonial-author">— Dr. Sarah J. Chen, Clearview Pediatrics, CA</div>
+        <div class="testimonials-container">
+            <h3>What Our Clients Say</h3>
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide active">
+                        <div class="testimonial-card">
+                            <div class="client-header">
+                                <div class="client-avatar">DR</div>
+                                <div class="client-info">
+                                    <h3>Dr. Rebecca Martinez</h3>
+                                    <p class="client-role">Chief Medical Officer, Central Valley Health</p>
+                                </div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"Dr Medoc completely transformed our billing process. Within 3 months, we saw a 40% reduction in claim denials and our cash flow improved dramatically. Their team is knowledgeable, responsive, and truly understands the complexities of medical billing."</p>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="client-header">
+                                <div class="client-avatar">JT</div>
+                                <div class="client-info">
+                                    <h3>James Thompson</h3>
+                                    <p class="client-role">Practice Administrator, Thompson Family Medicine</p>
+                                </div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"I was skeptical about outsourcing our RCM, but Dr Medoc exceeded all expectations. They eliminated our staffing headaches and doubled our collection rate in just 6 months. Best decision we've made for our practice!"</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <div class="client-header">
+                                <div class="client-avatar">SP</div>
+                                <div class="client-info">
+                                    <h3>Dr. Sarah Patel</h3>
+                                    <p class="client-role">Orthopedic Surgeon, Metro Orthopedics Group</p>
+                                </div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"The expertise Dr Medoc brings to complex orthopedic coding is unmatched. They handle everything from pre-authorization to appeals with precision. Our accounts receivable days dropped from 65 to 32 days - incredible results!"</p>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="client-header">
+                                <div class="client-avatar">MC</div>
+                                <div class="client-info">
+                                    <h3>Michael Chen</h3>
+                                    <p class="client-role">CEO, Regional Medical Associates</p>
+                                </div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"As we scaled from 3 to 8 locations, Dr Medoc scaled with us seamlessly. No hiring, no training delays - just consistent, expert RCM support. Their scalability model is perfect for growing practices."</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-card">
+                            <div class="client-header">
+                                <div class="client-avatar">LA</div>
+                                <div class="client-info">
+                                    <h3>Dr. Lisa Anderson</h3>
+                                    <p class="client-role">Pediatrician, Bright Future Pediatrics</p>
+                                </div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"Dr Medoc gave me my evenings back. I was spending 2-3 hours every night on billing issues. Now, I focus entirely on my patients while their team handles everything behind the scenes. Life-changing for my work-life balance!"</p>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="client-header">
+                                <div class="client-avatar">RJ</div>
+                                <div class="client-info">
+                                    <h3>Robert Johnson</h3>
+                                    <p class="client-role">CFO, Summit Healthcare System</p>
+                                </div>
+                            </div>
+                            <div class="star-rating">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <p class="testimonial-text">"The ROI has been phenomenal. Dr Medoc's team identified $2.3M in missed revenue in our first quarter together. Their attention to detail and aggressive follow-up on aged A/R is simply outstanding."</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-number">02</div>
-                <p class="testimonial-text">"We were always struggling to collect full reimbursement on time. Dr Medoc didn't just file claims; their follow-up team aggressively worked our aged accounts. Our A/R days dropped by over two weeks, resulting in the quickest cash flow we've ever had."</p>
-                <div class="testimonial-author">— Dr. Michael R. Rodriguez, Frontier Primary Care, TX</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-number">03</div>
-                <p class="testimonial-text">"As a growing multi-site practice, our internal billing team couldn't keep up. Dr Medoc provided scalable staffing instantly. We added two new locations without a single disruption to our billing cycle. They truly are growth-ready."
-</p>
-                <div class="testimonial-author">— Dr. Amelia L. Hansen, Midwest Cardiology Group, IL</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-number">04</div>
-                <p class="testimonial-text">"Our specialized surgical practice requires intricate coding and constant compliance checks. Dr Medoc assigned us a team with verified surgical billing expertise. It feels like they built a department just for us—compliant, precise, and completely customized."</p>
-                <div class="testimonial-author">— Dr. William T. O’Connell, O’Connell Surgical Associates, NY</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-number">05</div>
-                <p class="testimonial-text">"We specialize in pain management, which means complex billing. Since we switched to Dr Medoc, our denial rates on high-level procedures dropped by nearly 20% in the first quarter. Their team of analysts is just sharper than anyone we've hired internally."
-</p>
-                <div class="testimonial-author">— Dr. Benjamin T. Kroll, Atlanta Orthopedics, GA</div>
+
+            <!-- Carousel Controls -->
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="prevSlide()">‹</button>
+                <div class="carousel-indicators" id="indicators"></div>
+                <button class="carousel-btn" onclick="nextSlide()">›</button>
             </div>
         </div>
     </section>
@@ -951,7 +1277,7 @@ nav a {
   <div class="faq-header">
     <h2>Wondering About Something?</h2>
     <p>Let's Clear Things Up!</p>
-    <p>
+    <p class="faq-explore">
       Explore our FAQ section for essential information on our expert RCM staffing models, specialized compliance expertise, and how we help secure your practice's financial health. Can't find the answers you need? Contact us today!
     </p>
   </div>
@@ -1064,6 +1390,26 @@ nav a {
             </div>
         </div>
     </footer>
+    <script>
+ const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+// Toggle menu when hamburger is clicked
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('toggle');
+});
+
+// Close menu when any link inside menu is clicked
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    hamburger.classList.remove('toggle');
+  });
+});
+
+    </script>
 </body>
 </html>
  <script>
@@ -1088,3 +1434,97 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
 
 </script>
+  <script>
+    
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+        // Initialize indicators
+        function initIndicators() {
+            const indicatorsContainer = document.getElementById('indicators');
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.onclick = () => goToSlide(i);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        // Update carousel position
+        function updateCarousel() {
+            const wrapper = document.getElementById('carouselWrapper');
+            wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update indicators
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+
+            // Update active class for animation
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Next slide
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        // Previous slide
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        // Auto-play functionality
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Dark Mode Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Initialize carousel
+            initIndicators();
+            startAutoPlay();
+        });
+
+        // Pause auto-play on hover
+        document.querySelector('.carousel-container').addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        document.querySelector('.carousel-container').addEventListener('mouseleave', () => {
+            startAutoPlay();
+        });
+    </script>

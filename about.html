@@ -50,34 +50,20 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* optional for better visibility */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.mobile-btn{
+    display:none;
 }
 
-.logo {
-  font-size: 18px;
-  font-weight: 700;
-}
 .logo a {
   text-decoration: none;
   color: #000;
-  cursor: pointer; /* shows pointer on hover */
   font-weight: 700;
   font-size: 18px;
 }
 
-
-
-
-/* Center navigation */
-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
+/* Desktop nav */
 nav ul {
   display: flex;
   list-style: none;
@@ -92,27 +78,55 @@ nav a {
   font-weight: 500;
 }
 
-/* Book Call Button (Right Side) */
-.header-btn {
-  margin-left: auto;
+/* Buttons */
+.header-btn .desktop-btn {
+  display: inline-block;
 }
 
-       .btn-primary {
-            background: #000;
-            color: #fff;
-            padding: 10px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-            transition: background 0.3s;
-        }
+.btn-primary {
+  background: #000;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
 
-        .btn-primary:hover {
-            background: #333;
-        }
+.btn-primary:hover {
+  background: #333;
+}
 
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+    z-index: 1001; /* higher than nav */
+
+}
+.hamburger.toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
         /* Hero Section */
         .hero-section {
             padding: 5rem 5% 4rem;
@@ -516,10 +530,46 @@ nav a {
         }
           /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
+        
+ header {
+    padding: 15px 20px;
+  }
 
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* hide menu initially */
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+  }
+
+  nav.active {
+    right: 0; /* show menu when active */
+  }
+
+  .hamburger {
+    display: flex; /* show hamburger on mobile */
+  }
+
+  .header-btn .desktop-btn {
+    display: none; /* hide desktop button on mobile */
+  }
+
+  .mobile-btn {
+    display: block;
+  }
             nav ul {
                 gap: 15px;
             }
@@ -539,25 +589,32 @@ nav a {
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-<div class="logo">
-  <a href="index.html">Dr Medoc</a>
-</div>
+   <header>
+  <div class="logo">
+    <a href="index.html">Dr Medoc</a>
+  </div>
 
   <nav>
-    <ul>
+    <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="service.html">Services</a></li>
       <li><a href="testimonial.html">Testimonial</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="btn-primary mobile-btn">Book Call</a></li> <!-- optional button in menu -->
     </ul>
   </nav>
 
   <div class="header-btn">
-    <a href="#" class="btn-primary">Book Call</a>
+    <a href="#" class="btn-primary desktop-btn">Book Call</a>
+  </div>
+
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </header>
+
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -737,6 +794,26 @@ nav a {
                 }
             });
         });
+    </script>
+    <script>
+ const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+// Toggle menu when hamburger is clicked
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('toggle');
+});
+
+// Close menu when any link inside menu is clicked
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    hamburger.classList.remove('toggle');
+  });
+});
+
     </script>
 </body>
 </html>
