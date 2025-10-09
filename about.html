@@ -13,7 +13,7 @@
         }
 
         :root {
-            --primary-color: #007bff;
+            --primary-color: #000000;
             --secondary-color: black;
             --dark-bg: #1a1a1a;
             --light-bg: #f8f9fa;
@@ -230,13 +230,12 @@ nav a {
 
         .feature-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--primary-color), #0056b3);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -358,8 +357,6 @@ nav a {
         /* CTA Section */
         .cta-section {
             padding: 5rem 5%;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #1e7e34 100%);
-            color: white;
             text-align: center;
         }
 
@@ -375,26 +372,25 @@ nav a {
         }
 
         .cta-button {
-            background: white;
-            color: var(--secondary-color);
-            padding: 1rem 3rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
+            background: #000;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s;
+  cursor:pointer;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: #333;
+
         }
 
       
         /* Footer */
+         /* Footer */
         footer {
             background: #000;
             color: #fff;
@@ -418,7 +414,7 @@ nav a {
         .footer-brand {
             font-size: 120px;
             font-weight: 900;
-            color: #00ff00;
+            color:#A2FC8D;
             line-height: 1;
         }
 
@@ -432,7 +428,7 @@ nav a {
         }
 
         .btn-green {
-            background: #00ff00;
+            background:#A2FC8D;
             color: #000;
             padding: 15px 40px;
             border-radius: 30px;
@@ -631,7 +627,7 @@ nav a {
                 <p>We provide expert Revenue Cycle Management (RCM) staffing solutions designed to serve as a seamless, high-performing extension of your practice. We replace the headache of hiring, training, and managing billing staff with a reliable, expert-driven service that secures your financial future.</p>
             </div>
             <div class="mission-icon">
-                🏥
+                
             </div>
         </div>
     </section>
@@ -643,19 +639,19 @@ nav a {
         
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
+                <div class="feature-icon"><img src="/images/expert_12164572.png" alt="Robot" height="50" width="50"></div>
                 <h3>RCM Expertise, Human Driven</h3>
                 <p>We only deploy high-caliber RCM specialists—proven experts in complex coding, payer-specific denial logic, and compliance. We bring the deep knowledge that generic staff or basic software simply cannot match.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
+                <div class="feature-icon"><img src="/images/shield_15029556.png" alt="Robot" height="50" width="50"></div>
                 <h3>Zero Staffing Risk</h3>
                 <p>Staff turnover is a primary cause of revenue loss. With Dr Medoc, that risk is eliminated. We handle all hiring, training, management, and retention, ensuring your cash flow remains stable and consistent.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">⚙️</div>
+                <div class="feature-icon"><img src="/images/security_6865385.png" alt="Robot" height="50" width="50"></div>
                 <h3>Enhanced Customization</h3>
                 <p>Your practice is unique. We build custom RCM teams and workflows perfectly tailored to your specialty, patient volume, and state-specific regulations. It is not a one-size-fits-all model; it is a dedicated department built just for you.</p>
             </div>
@@ -709,10 +705,11 @@ nav a {
         <p>Let's connect for a complimentary RCM assessment and get you back to focusing on patient care.</p>
         <button class="cta-button" onclick="window.location.href='#contact'">Schedule Free Assessment</button>
     </section>
-  <footer>
+     <!-- Footer -->
+    <footer>
         <div class="footer-content">
             <div class="footer-main">
-                <div class="footer-brand">6THLABS</div>
+                <div class="footer-brand">Dr Medoc</div>
                 <div class="footer-cta">
                     <h3>LET'S BUILD SOMETHING AMAZING</h3>
                     <a href="#" class="btn-green">Schedule Free Consultation</a>
@@ -723,27 +720,18 @@ nav a {
                     <h4>Company</h4>
                     <ul>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Testimonial</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
+           
                 <div class="footer-column">
-                    <h4>Services</h4>
+                    <h4>Conect</h4>
                     <ul>
-                        <li><a href="#">MVP Development</a></li>
-                        <li><a href="#">Product Design</a></li>
-                        <li><a href="#">AI Solutions</a></li>
-                        <li><a href="#">Consulting</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">FaceBook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -756,7 +744,7 @@ nav a {
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© 2025 6thLabs. All rights reserved.</div>
+                <div>© 2025 Dr Medoc. All rights reserved.</div>
                 <div class="footer-bottom-links">
                     <a href="#">Twitter</a>
                     <a href="#">LinkedIn</a>
