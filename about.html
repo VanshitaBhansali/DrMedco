@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dr Medoc</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: black;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-light: #999;
+            --border-color: #e0e0e0;
+        }
+
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --light-bg: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-light: #808080;
+            --border-color: #404040;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--light-bg);
+            transition: background-color 0.3s, color 0.3s;
+        }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* optional for better visibility */
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+}
+.logo a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer; /* shows pointer on hover */
+  font-weight: 700;
+  font-size: 18px;
+}
+
+
+
+
+/* Center navigation */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Book Call Button (Right Side) */
+.header-btn {
+  margin-left: auto;
+}
+
+       .btn-primary {
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 5rem 5% 4rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 5rem 5%;
+            background: var(--card-bg);
+            transition: background-color 0.3s;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-content h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-content h2 span {
+            color: var(--secondary-color);
+        }
+
+        .mission-content p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .mission-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12rem;
+            opacity: 0.1;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            padding: 5rem 5%;
+            background: var(--light-bg);
+            transition: background-color 0.3s;
+        }
+
+        .why-choose-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .why-choose-section .intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.15);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 5rem 5%;
+            background: var(--card-bg);
+            transition: background-color 0.3s;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--text-primary);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .value-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Security Section */
+        .security-section {
+            padding: 5rem 5%;
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        .security-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .security-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .security-section p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1e7e34 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--secondary-color);
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+      
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 80px 50px 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            font-size: 120px;
+            font-weight: 900;
+            color: #00ff00;
+            line-height: 1;
+        }
+
+        .footer-cta {
+            text-align: right;
+        }
+
+        .footer-cta h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn-green {
+            background: #00ff00;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 2.5;
+            display: block;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            font-size: 12px;
+            color: #666;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom a {
+            color: #666;
+            text-decoration: none;
+        }
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-link {
+                display: none;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .mission-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .mission-icon {
+                font-size: 6rem;
+            }
+
+            .features-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card,
+            .value-card {
+                text-align: left;
+            }
+
+            .value-number {
+                margin: 0 0 1.5rem 0;
+            }
+        }
+          /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+            .footer-brand {
+                font-size: 60px;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-cta {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+<div class="logo">
+  <a href="index.html">Dr Medoc</a>
+</div>
+
+  <nav>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="testimonial.html">Testimonial</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-btn">
+    <a href="#" class="btn-primary">Book Call</a>
+  </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>About Dr Medoc</h1>
+        <p class="subtitle">Your Strategic RCM Staffing Partner</p>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <div class="mission-content">
+                <h2>Our Mission: <span>Focus on Healing, Not Headaches</span></h2>
+                <p>At Dr Medoc, we believe healthcare providers should be focused on one thing: patient care. The administrative burden of billing, coding, and denial management has become a major roadblock, leading to lost revenue and burnout. Our mission is simple: to eliminate that roadblock entirely.</p>
+                <p>We provide expert Revenue Cycle Management (RCM) staffing solutions designed to serve as a seamless, high-performing extension of your practice. We replace the headache of hiring, training, and managing billing staff with a reliable, expert-driven service that secures your financial future.</p>
+            </div>
+            <div class="mission-icon">
+                🏥
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose-section">
+        <h2>Why Staffing Solutions? The Dr Medoc Difference</h2>
+        <p class="intro">We are not just a billing company, nor are we a software vendor. We are a strategic human resources partner dedicated to your financial health. We solve the industry's biggest RCM challenge: staffing instability and lack of specialized expertise.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>RCM Expertise, Human Driven</h3>
+                <p>We only deploy high-caliber RCM specialists—proven experts in complex coding, payer-specific denial logic, and compliance. We bring the deep knowledge that generic staff or basic software simply cannot match.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Zero Staffing Risk</h3>
+                <p>Staff turnover is a primary cause of revenue loss. With Dr Medoc, that risk is eliminated. We handle all hiring, training, management, and retention, ensuring your cash flow remains stable and consistent.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚙️</div>
+                <h3>Enhanced Customization</h3>
+                <p>Your practice is unique. We build custom RCM teams and workflows perfectly tailored to your specialty, patient volume, and state-specific regulations. It is not a one-size-fits-all model; it is a dedicated department built just for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <h2>Our Value Proposition: Smarter RCM, Faster Results</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 3rem; color: var(--text-secondary); font-size: 1.05rem;">Our tailored RCM staffing model delivers three critical outcomes for your practice:</p>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-number">1</div>
+                <h3>Full-Cycle Revenue Security</h3>
+                <p>We provide End-to-End RCM Management, from detailed eligibility verification and proactive prior authorizations to aggressive Accounts Receivable (A/R) follow-up and accurate payment posting. Nothing falls through the cracks.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">2</div>
+                <h3>Accelerated Cash Flow</h3>
+                <p>Our Expert Execution means no delays. Our teams work claims with high speed and precision, leading to faster claims-to-cash conversion and a rapid resolution of denials.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-number">3</div>
+                <h3>Scalable Teams for Growth</h3>
+                <p>Our service is built for sustainable growth. As your patient volume increases or you expand your practice, our teams easily scale to meet demand without requiring you to hire and train new personnel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <div class="security-container">
+            <h2>Security, Compliance, and Trust</h2>
+            <p>We understand that trust is paramount. Our RCM staff works diligently within your existing Practice Management (PM) or Electronic Health Records (EHR) system, adhering to the highest standards of HIPAA compliance. We treat your patient data with the same diligence and security you do.</p>
+            <p>Dr Medoc is more than a service provider; we are your dedicated team, committed to delivering the financial peace of mind you deserve.</p>
+            
+            <div class="security-badges">
+                <div class="badge">🔒 HIPAA Compliant</div>
+                <div class="badge">✅ SOC 2 Certified</div>
+                <div class="badge">🛡️ Data Security</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Transform Your Revenue Cycle?</h2>
+        <p>Let's connect for a complimentary RCM assessment and get you back to focusing on patient care.</p>
+        <button class="cta-button" onclick="window.location.href='#contact'">Schedule Free Assessment</button>
+    </section>
+  <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">6THLABS</div>
+                <div class="footer-cta">
+                    <h3>LET'S BUILD SOMETHING AMAZING</h3>
+                    <a href="#" class="btn-green">Schedule Free Consultation</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">MVP Development</a></li>
+                        <li><a href="#">Product Design</a></li>
+                        <li><a href="#">AI Solutions</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2025 6thLabs. All rights reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Dark Mode Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

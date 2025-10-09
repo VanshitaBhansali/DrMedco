@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Latest Improvements - 6THLABS</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: #ffffff;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: "⬢";
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        .book-call-btn {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .book-call-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 5rem 5% 4rem;
+            border-radius: 0 0 30px 30px;
+            margin: 0 1rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .service-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .service-content p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .service-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #1a1a1a;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        /* Partners Section */
+        .partners-section {
+            padding: 5rem 5%;
+            background: #fafafa;
+        }
+
+        .partners-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .partner-logo {
+            text-align: center;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .partner-logo img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        /* Placeholder for partner logos */
+        .partner-logo::before {
+            content: attr(data-name);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .footer-column h3 {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-column a::before {
+            content: "›";
+            color: #7fff7f;
+            font-size: 1.2rem;
+        }
+
+        .footer-column a:hover {
+            color: #7fff7f;
+        }
+
+        .newsletter-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            border-radius: 8px;
+            border: none;
+            background: #2a2a2a;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .newsletter-form button {
+            background: #7fff7f;
+            color: #1a1a1a;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #6fe86f;
+            transform: translateY(-2px);
+        }
+
+        .footer-branding {
+            text-align: center;
+            padding-top: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #7fff7f;
+            letter-spacing: 5px;
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .service-content h2 {
+                font-size: 2rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-logo {
+                font-size: 3rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Service Image Backgrounds */
+        .service-image.ai-solutions {
+            background: linear-gradient(135deg, #0a4a5c 0%, #1a7a8c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .service-image.mvp-development {
+            background: linear-gradient(135deg, #1a3a5c 0%, #2a5a8c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .service-image.custom-integrations {
+            background: linear-gradient(135deg, #2a2a4a 0%, #3a4a7a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .service-image.automation-solutions {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+         .service-image.paymentposting  {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .service-image.eligibility  {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .service-image.referral  {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .service-image.newpatient  {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+         .service-image.medical  {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+         .service-image.biller  {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+         .service-image.medicalcoding {
+            background: linear-gradient(135deg, #1a3a4a 0%, #2a5a6a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">6THLABS</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#clients">Clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="book-call-btn">Book Call</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-tag">CHANGELOG</div>
+        <h1>Our Latest Improvements</h1>
+        <p>Explore the latest updates, enhancements, and bug fixes in our changelog to see how we're working to improve your experience.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <!-- AI Solutions -->
+        <div class="service-item">
+            <div class="service-image ai-solutions">
+    <img src="/images/rcm.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>RCM	Revenue Cycle Management (RCM) </h2>
+                <p>The complete process of tracking a patient encounter from registration and appointment scheduling to the final payment and closure of the account. It ensures practices get paid correctly and on time.  </p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MVP Development -->
+        <div class="service-item">
+            <div class="service-image mvp-development">
+    <img src="/images/medical billing.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Medical Billing Services</h2>
+                <p>The overall service of submitting claims to insurance payers and patients, following up on denials, and ensuring proper reimbursement for services provided by the doctor.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Integrations -->
+        <div class="service-item">
+            <div class="service-image custom-integrations">
+    <img src="/images/referral.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Credentialing</h2>
+                <p>Seamlessly connect systems for streamlined workflows and optimized performance</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Automation Solutions -->
+        <div class="service-item">
+            <div class="service-image automation-solutions">
+    <img src="/images/ar.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Accounts Receivable (A/R)</h2>
+                <p>The process of actively managing and pursuing all claims that are currently unpaid by payers or patients. The goal is to maximize collections from submitted claims.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+         <div class="service-item">
+            <div class="service-image paymentposting ">
+    <img src="/images/payment posting.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Payment Posting </h2>
+                <p>The accurate recording of payments (from both insurance companies and patients) into the practice management system. This process closes accounts and identifies any remaining patient balances or claims that need follow-up.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+         <div class="service-item">
+            <div class="service-image eligibility ">
+    <img src="/images/eligibility.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Eligibility and Benefits </h2>
+                <p>The process of verifying a patient's active insurance status and understanding their coverage details (e.g., co-pays, deductibles, and covered services) before the service is rendered.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+ <div class="service-item">
+            <div class="service-image referral ">
+    <img src="/images/eligibility.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Referral & Prior Authorization </h2>
+                <p>Obtaining official approval from the patient's insurance company for a specific service or referral before the procedure is performed. This is critical for preventing claim denials.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-image newpatient ">
+    <img src="/images/new patient coordinator.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>New Patient Coordinator </h2>
+                <p>An administrative role focused on handling the initial contact, scheduling, insurance verification, and paperwork for new patients to ensure a smooth, compliant entry into the practice.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+         <div class="service-item">
+            <div class="service-image medical ">
+    <img src="/images/medical records.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Medical Records </h2>
+                <p>	The process of organizing, maintaining, and securely retrieving a patient's clinical and demographic documentation, ensuring all records are accurate and compliant with HIPAA regulations.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+         <div class="service-item">
+            <div class="service-image medicalcoding">
+    <img src="/images/medical records.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Medical Coding </h2>
+                <p>	Translating the doctor's documentation of diagnoses and procedures into standardized codes (like CPT, ICD-10, and HCPCS) required by insurance payers for billing and reimbursement.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+         <div class="service-item">
+            <div class="service-image biller ">
+    <img src="/images/medical records.jpg" alt="Robot" width="24" height="24">
+            </div>
+            <div class="service-content">
+                <h2>Medical Biller </h2>
+                <p>	The professional responsible for generating claims based on coded services, submitting them to insurance companies, and managing follow-up on outstanding payments.</p>
+                <div class="service-buttons">
+                    <button class="btn-primary">Get Started</button>
+                    <button class="btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <h2>Partners</h2>
+        <div class="partners-grid">
+            <div class="partner-logo" data-name="NVIDIA"></div>
+            <div class="partner-logo" data-name="AWS"></div>
+            <div class="partner-logo" data-name="Google Cloud"></div>
+            <div class="partner-logo" data-name="Azure"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3></h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3></h3>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+            <div class="newsletter-section">
+                <h3>Subscribe to the newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="john@6thlabs.io">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-branding">
+            <div class="footer-logo">6THLABS</div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+                <div>©6thlabs</div>
+                <div>Made with Passion</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
