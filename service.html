@@ -18,48 +18,79 @@
             color: #333;
             background: #ffffff;
         }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* optional for better visibility */
+}
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background: #ffffff;
-        }
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+}
+.logo a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer; /* shows pointer on hover */
+  font-weight: 700;
+  font-size: 18px;
+}
 
-        .logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
 
-        .logo::before {
-            content: "⬢";
-            font-size: 1.3rem;
-        }
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            align-items: center;
-        }
 
-        .nav-links a {
+/* Center navigation */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Book Call Button (Right Side) */
+.header-btn {
+  margin-left: auto;
+}
+
+
+
+        .btn-primary {
+            background: #000;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 25px;
             text-decoration: none;
-            color: #333;
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #007bff;
+        .btn-primary:hover {
+            background: #333;
         }
-
         .book-call-btn {
             background: #1a1a1a;
             color: white;
@@ -257,55 +288,104 @@
             color: #1a1a1a;
         }
 
-        /* Footer */
+       /* Footer */
         footer {
-            background: #1a1a1a;
-            color: #ffffff;
-            padding: 4rem 5% 2rem;
+            background: #000;
+            color: #fff;
+            padding: 80px 50px 40px;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr 2fr;
-            gap: 4rem;
             max-width: 1200px;
-            margin: 0 auto 4rem;
+            margin: 0 auto;
         }
 
-        .footer-column h3 {
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 400;
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            font-size: 120px;
+            font-weight: 900;
+            color: #00ff00;
+            line-height: 1;
+        }
+
+        .footer-cta {
+            text-align: right;
+        }
+
+        .footer-cta h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn-green {
+            background: #00ff00;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #999;
+            font-weight: 600;
         }
 
         .footer-column ul {
             list-style: none;
         }
 
-        .footer-column ul li {
-            margin-bottom: 1rem;
-        }
-
         .footer-column a {
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            font-size: 14px;
+            line-height: 2.5;
+            display: block;
+        }
+
+        .footer-bottom {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
+            padding-top: 30px;
+            font-size: 12px;
+            color: #666;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .footer-column a::before {
-            content: "›";
-            color: #7fff7f;
-            font-size: 1.2rem;
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
         }
 
-        .footer-column a:hover {
-            color: #7fff7f;
+        .footer-bottom a {
+            color: #666;
+            text-decoration: none;
         }
+
 
         .newsletter-section h3 {
             font-size: 1.2rem;
@@ -519,17 +599,24 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="logo">6THLABS</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#clients">Clients</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="book-call-btn">Book Call</button>
-    </nav>
+      <header>
+<div class="logo">
+  <a href="index.html">Dr Medoc</a>
+</div>
+
+  <nav>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="testimonial.html">Testimonial</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-btn">
+    <a href="#" class="btn-primary">Book Call</a>
+  </div>
+</header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -703,46 +790,60 @@
         </div>
     </section>
 
-    <!-- Footer -->
+  <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-column">
-                <h3></h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3></h3>
-                <ul>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Discord</a></li>
-                </ul>
-            </div>
-            <div class="newsletter-section">
-                <h3>Subscribe to the newsletter</h3>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="john@6thlabs.io">
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-branding">
-            <div class="footer-logo">6THLABS</div>
-            <div class="footer-bottom">
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms</a>
+            <div class="footer-main">
+                <div class="footer-brand">6THLABS</div>
+                <div class="footer-cta">
+                    <h3>LET'S BUILD SOMETHING AMAZING</h3>
+                    <a href="#" class="btn-green">Schedule Free Consultation</a>
                 </div>
-                <div>©6thlabs</div>
-                <div>Made with Passion</div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">MVP Development</a></li>
+                        <li><a href="#">Product Design</a></li>
+                        <li><a href="#">AI Solutions</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2025 6thLabs. All rights reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
             </div>
         </div>
     </footer>
