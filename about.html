@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Dr Medoc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Inter Placeholder:wght@400;600&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
                 html, body {
   width: 100%;
-  overflow-x: hidden; /* prevent horizontal scroll */
 }
+body {
+          font-family: 'Inter', 'Inter Placeholder',  sans-serif; 
+            color: #000;
+        }
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -39,7 +44,6 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--light-bg);
@@ -152,45 +156,107 @@ nav a {
         }
 
         /* Mission Section */
-        .mission-section {
-            padding: 5rem 5%;
-            background: var(--card-bg);
-            transition: background-color 0.3s;
-        }
+.mission-section {
+  padding: 70px 20px;
+  background: var(--card-bg, #f9fbfd);
+  transition: background-color 0.3s ease;
+}
 
-        .mission-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+.mission-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
 
-        .mission-content h2 {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
+/* Text Styling */
+.mission-content h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary, #222);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
 
-        .mission-content h2 span {
-            color: var(--secondary-color);
-        }
+.mission-content h2 span {
+  color: var(--secondary-color, #0d6efd);
+}
 
-        .mission-content p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
+.mission-content p {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #555);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
 
-        .mission-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12rem;
-            opacity: 0.1;
-        }
+/* Image Styling */
+.mission-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mission-icon img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.mission-icon img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .mission-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .mission-content {
+    order: 2;
+  }
+
+  .mission-icon {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+
+  .mission-content h2 {
+    font-size: 2rem;
+  }
+
+  .mission-content p {
+    font-size: 1rem;
+  }
+
+  .mission-icon img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mission-section {
+    padding: 50px 15px;
+  }
+
+  .mission-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .mission-content p {
+    font-size: 0.95rem;
+  }
+
+  .mission-icon img {
+    max-width: 300px;
+  }
+}
 
         /* Why Choose Section */
         .why-choose-section {
@@ -271,7 +337,7 @@ nav a {
         .values-section h2 {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             color: var(--text-primary);
         }
 
@@ -501,15 +567,6 @@ nav a {
                 font-size: 1.2rem;
             }
 
-            .mission-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .mission-icon {
-                font-size: 6rem;
-            }
-
             .features-grid,
             .values-grid {
                 grid-template-columns: 1fr;
@@ -581,6 +638,7 @@ nav a {
             .footer-cta {
                 text-align: center;
             }
+   
         }
     </style>
 </head>
@@ -596,12 +654,12 @@ nav a {
       <li><a href="service.html">Our Services</a></li>
       <li><a href="testimonial.html">Testimonials</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="#" class="btn-primary mobile-btn">Book Call</a></li> <!-- optional button in menu -->
+      <li><a href="contact.html" class="btn-primary mobile-btn">Book Call</a></li> <!-- optional button in menu -->
     </ul>
   </nav>
 
   <div class="header-btn">
-    <a href="#" class="btn-primary desktop-btn">Book Call</a>
+    <a href="contact.html" class="btn-primary desktop-btn">Book Call</a>
   </div>
 
   <div class="hamburger">
@@ -618,19 +676,35 @@ nav a {
         <p class="subtitle">Your Strategic RCM Staffing Partner</p>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission-section">
-        <div class="mission-container">
-            <div class="mission-content">
-                <h2>Our Mission: <span>Focus on Healing, Not Headaches</span></h2>
-                <p>At Dr Medoc, we believe healthcare providers should be focused on one thing: patient care. The administrative burden of billing, coding, and denial management has become a major roadblock, leading to lost revenue and burnout. Our mission is simple: to eliminate that roadblock entirely.</p>
-                <p>We provide expert Revenue Cycle Management (RCM) staffing solutions designed to serve as a seamless, high-performing extension of your practice. We replace the headache of hiring, training, and managing billing staff with a reliable, expert-driven service that secures your financial future.</p>
-            </div>
-            <div class="mission-icon">
-                
-            </div>
-        </div>
-    </section>
+   <!-- Mission Section -->
+<section class="mission-section">
+  <div class="mission-container">
+    <div class="mission-content">
+      <h2>
+        Our Mission: <span>Focus on Healing, Not Headaches</span>
+      </h2>
+      <p>
+        At Dr Medoc, we believe healthcare providers should be focused on one
+        thing: patient care. The administrative burden of billing, coding, and
+        denial management has become a major roadblock, leading to lost revenue
+        and burnout. Our mission is simple: to eliminate that roadblock
+        entirely.
+      </p>
+      <p>
+        We provide expert Revenue Cycle Management (RCM) staffing solutions
+        designed to serve as a seamless, high-performing extension of your
+        practice. We replace the headache of hiring, training, and managing
+        billing staff with a reliable, expert-driven service that secures your
+        financial future.
+      </p>
+    </div>
+
+    <div class="mission-icon">
+      <img src="images/about us.png" alt="Doctor working with secure data illustration">
+    </div>
+  </div>
+</section>
+
 
     <!-- Why Choose Section -->
     <section class="why-choose-section">
@@ -639,19 +713,19 @@ nav a {
         
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon"><img src="/images/expert_12164572.png" alt="Robot" height="50" width="50"></div>
+                <div class="feature-icon"><img src="images/expert_12164572.png" alt="Robot" height="50" width="50"></div>
                 <h3>RCM Expertise, Human Driven</h3>
                 <p>We only deploy high-caliber RCM specialists—proven experts in complex coding, payer-specific denial logic, and compliance. We bring the deep knowledge that generic staff or basic software simply cannot match.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon"><img src="/images/shield_15029556.png" alt="Robot" height="50" width="50"></div>
+                <div class="feature-icon"><img src="images/shield_15029556.png" alt="Robot" height="50" width="50"></div>
                 <h3>Zero Staffing Risk</h3>
                 <p>Staff turnover is a primary cause of revenue loss. With Dr Medoc, that risk is eliminated. We handle all hiring, training, management, and retention, ensuring your cash flow remains stable and consistent.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon"><img src="/images/security_6865385.png" alt="Robot" height="50" width="50"></div>
+                <div class="feature-icon"><img src="images/security_6865385.png" alt="Robot" height="50" width="50"></div>
                 <h3>Enhanced Customization</h3>
                 <p>Your practice is unique. We build custom RCM teams and workflows perfectly tailored to your specialty, patient volume, and state-specific regulations. It is not a one-size-fits-all model; it is a dedicated department built just for you.</p>
             </div>
@@ -719,10 +793,10 @@ nav a {
                 <div class="footer-column">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Testimonial</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="testimonial.html">Testimonial</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
            

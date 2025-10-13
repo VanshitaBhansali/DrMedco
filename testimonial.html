@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testimonials - Dr Medoc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Inter Placeholder:wght@400;600&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
                 html, body {
   width: 100%;
-  overflow-x: hidden; /* prevent horizontal scroll */
 }
+body {
+          font-family: 'Inter', 'Inter Placeholder',  sans-serif; 
+            color: #000;
+        }
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -40,8 +45,6 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
             color: var(--text-primary);
             background: var(--light-bg);
             transition: background-color 0.3s, color 0.3s;
@@ -155,7 +158,7 @@ nav a {
 
         /* Testimonials Section */
         .testimonials-section {
-            padding: 5rem 5%;
+            padding: 50px 12px 70px;
             background: var(--card-bg);
             transition: background-color 0.3s;
         }
@@ -336,7 +339,7 @@ nav a {
         /* Stats Section */
         .stats-section {
             background: var(--light-bg);
-            padding: 4rem 5%;
+            padding:50px 12px 70px;
             margin-top: 3rem;
             transition: background-color 0.3s;
         }
@@ -499,6 +502,19 @@ nav a {
             text-decoration: none;
         }
         @media (max-width:768px) {
+             .footer-brand {
+                font-size: 60px;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-cta {
+                text-align: center;
+            }
+
              header {
     padding: 15px 20px;
   }
@@ -592,12 +608,12 @@ nav a {
       <li><a href="service.html">Our Services</a></li>
       <li><a href="testimonial.html">Testimonials</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="#" class="btn-primary mobile-btn">Book Call</a></li> <!-- optional button in menu -->
+      <li><a href="contact.html" class="btn-primary mobile-btn">Book Call</a></li> <!-- optional button in menu -->
     </ul>
   </nav>
 
   <div class="header-btn">
-    <a href="#" class="btn-primary desktop-btn">Book Call</a>
+    <a href="contact.html" class="btn-primary desktop-btn">Book Call</a>
   </div>
 
   <div class="hamburger">
@@ -791,10 +807,10 @@ nav a {
                 <div class="footer-column">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Testimonial</a></li>
-                        <li><a href="#">Contact</a></li>
+                         <li><a href="about.html">About</a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="testimonial.html">Testimonial</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
            

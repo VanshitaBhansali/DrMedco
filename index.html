@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DrMedoc - Building Future-Ready Solutions with AI and Innovation</title>
-   
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Inter Placeholder:wght@400;600&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         html, body {
   width: 100%;
-  overflow-x: hidden; /* prevent horizontal scroll */
 }
         /* Reset and Base Styles */
         * {
@@ -18,11 +18,9 @@
         }
 
         body {
-              font-family: 'Inter', 'Inter Placeholder', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+          font-family: 'Inter', 'Inter Placeholder',  sans-serif; 
             color: #000;
-            overflow-x: hidden;
         }
-        body { font-family: 'Inter', 'Helvetica', 'Arial', sans-serif; } h1, h2, h3 { font-family: 'Poppins', 'Helvetica', sans-serif; } span { font-family: 'Montserrat', sans-serif; }
 /* Base header */
 header {
   display: flex;
@@ -53,8 +51,8 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #000;
-  font-size: 14px;
+  color: #0F0F0F;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -115,7 +113,7 @@ nav a {
        /* Hero Section */
 .hero {
   text-align: center;
-  padding: 100px 20px 80px;
+  padding: 40px 12px 50px;
   background: #fff;
   overflow-x: hidden;
 }
@@ -127,7 +125,8 @@ nav a {
   margin-left: auto;
   margin-right: auto;
   max-width: 900px;
-  line-height: 1.2;
+  letter-spacing: -.05em;
+  line-height: 100%;
 }
 
 .hero p {
@@ -157,15 +156,140 @@ nav a {
   color: #444;
   margin-left: 8px;
 }
+/***********services*************/
+/* ===== Security Circle Section ===== */
+.security-circle-section {
+  background: #f9fbff;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+  background: linear-gradient(135deg, #1e90ff, #5a5eff);
+  color: #fff;
+  padding: 40px;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.center-text h3 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.center-text span {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* Position icons around circle */
+.icon-card {
+  position: absolute;
+  width: 160px;
+  text-align: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.icon-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.icon-card h4 {
+  font-size: 1rem;
+  color: #1e1e2d;
+  margin-bottom: 5px;
+}
+
+.icon-card p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Hover animation */
+.icon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* Circular positions */
+.icon1 { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+.icon2 { top: 25%; right: 0%; transform: translate(50%, 0%); }
+.icon3 { bottom: 10%; right: 10%; }
+.icon4 { bottom: 10%; left: 10%; }
+.icon5 { top: 25%; left: 0%; transform: translate(-50%, 0%); }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .circle-container {
+    width: 320px;
+    height: 320px;
+  }
+
+  .center-text {
+    width: 140px;
+    height: 140px;
+    padding: 20px;
+  }
+
+  .icon-card {
+    width: 130px;
+    padding: 10px;
+  }
+
+  .icon-card img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon-card h4 {
+    font-size: 0.9rem;
+  }
+
+  .icon-card p {
+    font-size: 0.75rem;
+  }
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 40px;
   }
+  .case-study-image img{
+    width:300px !important;
+  }
 
   .hero p {
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .happyclient {
@@ -179,7 +303,7 @@ nav a {
         /* Trust Section */
         .trust-section {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 12px 70px;
             background: #f9f9f9;
         }
 
@@ -276,6 +400,7 @@ nav a {
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 15px;
+     letter-spacing: -.05em;
 }
 
 .features-header p {
@@ -1261,7 +1386,7 @@ nav a {
   </nav>
 
   <div class="header-btn">
-    <a href="#" class="btn-primary desktop-btn">Book Call</a>
+    <a href="contact.html" class="btn-primary desktop-btn">Book Call</a>
   </div>
 
   <div class="hamburger">
@@ -1307,6 +1432,44 @@ nav a {
     </div>
   </div>
 </section>
+<section class="security-circle-section">
+  <div class="circle-container">
+    <div class="center-text">
+      <h3>Your Data,<br><span>Secure & Protected</span></h3>
+    </div>
+
+    <div class="icon-card icon1">
+      <img src="images/cybersecurity.png" alt="Cybersecurity Icon">
+      <h4>Cybersecurity</h4>
+      <p>Continuous training, 24/7 monitoring, and MFA protection.</p>
+    </div>
+
+    <div class="icon-card icon2">
+      <img src="images/productivity.png" alt="Productivity Tracker Icon">
+      <h4>Productivity Tracker</h4>
+      <p>Ensuring efficiency through real-time monitoring.</p>
+    </div>
+
+    <div class="icon-card icon3">
+      <img src="images/device.png" alt="Device Protection Icon">
+      <h4>Device Protection</h4>
+      <p>Advanced antivirus and malware protection for top-tier security.</p>
+    </div>
+
+    <div class="icon-card icon4">
+      <img src="images/privacy.png" alt="PHI Privacy Icon">
+      <h4>PHI & Privacy</h4>
+      <p>HIPAA-compliant data protection with top security standards.</p>
+    </div>
+
+    <div class="icon-card icon5">
+      <img src="images/secure.png" alt="Secure Info Icon">
+      <h4>Secure Information</h4>
+      <p>Network safeguarded and continuously monitored.</p>
+    </div>
+  </div>
+</section>
+
 
 
     <!-- Features Section -->
