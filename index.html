@@ -109,15 +109,38 @@ nav a {
   transition: all 0.3s ease;
 }
 
+.highlight {
+  color: #9CCC50; /* professional green tone */
+}
+
         /* Hero Section */
        /* Hero Section */
 .hero {
+  position: relative;
   text-align: center;
   padding: 40px 12px 50px;
   background: #fff;
-  overflow-x: hidden;
+  overflow: hidden; /* hide moving edges */
+  color: #000;
+  z-index: 1;
 }
 
+/* Background image container */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  z-index: -1;
+  animation: bgCycle 40s infinite ease-in-out, bgMove 15s infinite alternate ease-in-out;
+}
+
+/* Headings & paragraphs */
 .hero h1 {
   font-size: 65px;
   font-weight: 700;
@@ -125,13 +148,13 @@ nav a {
   margin-left: auto;
   margin-right: auto;
   max-width: 900px;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
   line-height: 100%;
 }
 
 .hero p {
   font-size: 16px;
-  color: #666;
+  color: #333;
   line-height: 1.6;
   margin-bottom: 30px;
   max-width: 600px;
@@ -139,13 +162,14 @@ nav a {
   margin-right: auto;
   word-wrap: break-word;
 }
+
 .happyclient {
   font-size: 18px;
   color: #333;
   display: block;
   text-align: center;
   max-width: 90%;
-  margin: 40px auto 0; /* ⬅ adds space above (40px) to separate from button */
+  margin: 40px auto 0;
   word-wrap: break-word;
   white-space: normal;
   line-height: 1.6;
@@ -156,6 +180,41 @@ nav a {
   color: #444;
   margin-left: 8px;
 }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .happyclient {
+    font-size: 16px;
+    margin-top: 30px;
+    line-height: 1.5;
+  }
+}
+
+/* 🔄 Keyframes: background slideshow */
+@keyframes bgCycle {
+  0%   { background-image: url("images/about\ us.png"); }
+  20%  { background-image: url("images/ar.jpg"); }
+  40%  { background-image: url("images/biller.jpg"); }
+  60%  { background-image: url("images/coding.jpg"); }
+  80%  { background-image: url("images/credentiality.jpg"); }
+  100% { background-image: url("images/execute_9640682.png"); }
+}
+
+/* 🌀 Subtle floating motion */
+@keyframes bgMove {
+  0%   { transform: scale(1) translate(0, 0); }
+  50%  { transform: scale(1.05) translate(-10px, -10px); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
 /***********services*************/
 /* ===== Security Circle Section ===== */
 .security-features-alt {
@@ -1391,7 +1450,7 @@ nav a {
     <!-- Header/Navigation -->
   <header>
   <div class="logo">
-    <a href="index.html">Dr Medoc</a>
+    <a href="index.html">Dr.Medoc</a>
   </div>
 
   <nav>
@@ -1418,7 +1477,7 @@ nav a {
 
     <!-- Hero Section -->
    <section class="hero">
-  <h1>Transformation, Not Just Transaction: The Future of Medical Billing</h1>
+  <h1>Transformation, Not Just Transaction: The Future of  <span class="highlight">Medical Billing</span></h1>
   <p>
     Empowering Doctors with Tailored Billing Solutions, from Smart Claim Scrubbers
     to Advanced Reporting and Payment Automation.
@@ -1433,7 +1492,7 @@ nav a {
 
     <!-- Trust Section -->
    <section class="trust-section">
-  <h2>When <span>compliance</span> counts,<br>doctors choose Dr Medoc!</h2>
+  <h2>When <span>compliance</span> counts,<br>doctors choose Dr.Medoc!</h2>
 
   <div class="icon-grid">
     <div class="icon-row">
@@ -1451,6 +1510,45 @@ nav a {
     </div>
   </div>
 </section>
+
+<!-- Features Section -->
+    <section class="features-section">
+        <div class="features-header">
+            <p>Our Services</p>
+            <h2>Go Beyond the Claims Processing : We Deliver Revenue Growth.</h2>
+            <p>From Tailored Billing Workflows to Intelligent RCM Experts, we provide the dedicated staff that allows your practice to thrive.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-image">
+                    <div class="mock-device">    <img src="images/rcm.jpg" alt="Robot">
+</div>
+                </div>
+                <h3>RCM	Revenue Cycle Management (RCM)</h3>
+                <p> The complete process of tracking a patient encounter from registration and appointment scheduling to the final payment and closure of the account. It ensures practices get paid correctly and on time. </p>
+        
+            </div>
+            <div class="feature-card">
+                <div class="feature-image">
+                    <div class="mock-device"><img src="images/medical billing.jpg" alt="Robot" width="100" height="100"></div>
+                </div>
+                <h3>Medical Billing Services</h3>
+                <p>The overall service of submitting claims to insurance payers and patients, following up on denials, and ensuring proper reimbursement for services provided by the doctor.</p>
+                
+            </div>
+            <div class="feature-card">
+                <div class="feature-image">
+                    <div class="mock-device"><img src="images/credentiality.jpg" alt="Robot" width="100" height="100"></div>
+                </div>
+                <h3>Credentialing</h3>
+                <p>The detailed process of verifying a provider's qualifications (education, licenses, certifications) and applying for them to be officially enrolled as an in-network provider with specific insurance companies.</p>
+              
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;cursor:pointer">
+            <a href="service.html" class="btn-primary">Learn More</a>
+        </div>
+    </section>
 <section class="security-features-alt">
   <div class="features-grid">
     <!-- Main Title & Subheading Area -->
@@ -1506,48 +1604,6 @@ nav a {
   </div>
 </section>
 
-
-
-
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="features-header">
-            <p>Our Services</p>
-            <h2>Go Beyond the Claims Processing : We Deliver Revenue Growth.</h2>
-            <p>From Tailored Billing Workflows to Intelligent RCM Experts, we provide the dedicated staff that allows your practice to thrive.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-image">
-                    <div class="mock-device">    <img src="images/rcm.jpg" alt="Robot">
-</div>
-                </div>
-                <h3>RCM	Revenue Cycle Management (RCM)</h3>
-                <p> The complete process of tracking a patient encounter from registration and appointment scheduling to the final payment and closure of the account. It ensures practices get paid correctly and on time. </p>
-        
-            </div>
-            <div class="feature-card">
-                <div class="feature-image">
-                    <div class="mock-device"><img src="images/medical billing.jpg" alt="Robot" width="100" height="100"></div>
-                </div>
-                <h3>Medical Billing Services</h3>
-                <p>The overall service of submitting claims to insurance payers and patients, following up on denials, and ensuring proper reimbursement for services provided by the doctor.</p>
-                
-            </div>
-            <div class="feature-card">
-                <div class="feature-image">
-                    <div class="mock-device"><img src="images/credentiality.jpg" alt="Robot" width="100" height="100"></div>
-                </div>
-                <h3>Credentialing</h3>
-                <p>The detailed process of verifying a provider's qualifications (education, licenses, certifications) and applying for them to be officially enrolled as an in-network provider with specific insurance companies.</p>
-              
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 60px;cursor:pointer">
-            <a href="service.html" class="btn-primary">Learn More</a>
-        </div>
-    </section>
-
    <section class="case-study-section">
   <div class="case-study-container">
     <!-- Left image -->
@@ -1590,7 +1646,7 @@ nav a {
     <section class="benefits-section">
         <div class="benefits-header">
             <h2> Why You'll Love Drmedoc</h2>
-            <p>At Dr Medoc, we empower practices through tailored RCM strategies and expert human talent, driving financial efficiency and growth.</p>
+            <p>At Dr.Medoc, we empower practices through tailored RCM strategies and expert human talent, driving financial efficiency and growth.</p>
         </div>
         <div class="benefits-grid">
             <div class="benefit-card">
@@ -1672,7 +1728,7 @@ nav a {
                                     <span class="star">★</span>
                                     <span class="star">★</span>
                                 </div>
-                                <p class="testimonial-text">"Dr Medoc completely transformed our billing process. Within 3 months, we saw a 40% reduction in claim denials and our cash flow improved dramatically. Their team is knowledgeable, responsive, and truly understands the complexities of medical billing."</p>
+                                <p class="testimonial-text">"Dr.Medoc completely transformed our billing process. Within 3 months, we saw a 40% reduction in claim denials and our cash flow improved dramatically. Their team is knowledgeable, responsive, and truly understands the complexities of medical billing."</p>
                             </div>
 
                             <div class="testimonial-card">
@@ -1690,7 +1746,7 @@ nav a {
                                     <span class="star">★</span>
                                     <span class="star">★</span>
                                 </div>
-                                <p class="testimonial-text">"I was skeptical about outsourcing our RCM, but Dr Medoc exceeded all expectations. They eliminated our staffing headaches and doubled our collection rate in just 6 months. Best decision we've made for our practice!"</p>
+                                <p class="testimonial-text">"I was skeptical about outsourcing our RCM, but Dr.Medoc exceeded all expectations. They eliminated our staffing headaches and doubled our collection rate in just 6 months. Best decision we've made for our practice!"</p>
                             </div>
                         </div>
 
@@ -1711,7 +1767,7 @@ nav a {
                                     <span class="star">★</span>
                                     <span class="star">★</span>
                                 </div>
-                                <p class="testimonial-text">"The expertise Dr Medoc brings to complex orthopedic coding is unmatched. They handle everything from pre-authorization to appeals with precision. Our accounts receivable days dropped from 65 to 32 days - incredible results!"</p>
+                                <p class="testimonial-text">"The expertise Dr.Medoc brings to complex orthopedic coding is unmatched. They handle everything from pre-authorization to appeals with precision. Our accounts receivable days dropped from 65 to 32 days - incredible results!"</p>
                             </div>
 
                             <div class="testimonial-card">
@@ -1729,7 +1785,7 @@ nav a {
                                     <span class="star">★</span>
                                     <span class="star">★</span>
                                 </div>
-                                <p class="testimonial-text">"As we scaled from 3 to 8 locations, Dr Medoc scaled with us seamlessly. No hiring, no training delays - just consistent, expert RCM support. Their scalability model is perfect for growing practices."</p>
+                                <p class="testimonial-text">"As we scaled from 3 to 8 locations, Dr.Medoc scaled with us seamlessly. No hiring, no training delays - just consistent, expert RCM support. Their scalability model is perfect for growing practices."</p>
                             </div>
                         </div>
 
@@ -1750,7 +1806,7 @@ nav a {
                                     <span class="star">★</span>
                                     <span class="star">★</span>
                                 </div>
-                                <p class="testimonial-text">"Dr Medoc gave me my evenings back. I was spending 2-3 hours every night on billing issues. Now, I focus entirely on my patients while their team handles everything behind the scenes. Life-changing for my work-life balance!"</p>
+                                <p class="testimonial-text">"Dr.Medoc gave me my evenings back. I was spending 2-3 hours every night on billing issues. Now, I focus entirely on my patients while their team handles everything behind the scenes. Life-changing for my work-life balance!"</p>
                             </div>
 
                             <div class="testimonial-card">
@@ -1768,7 +1824,7 @@ nav a {
                                     <span class="star">★</span>
                                     <span class="star">★</span>
                                 </div>
-                                <p class="testimonial-text">"The ROI has been phenomenal. Dr Medoc's team identified $2.3M in missed revenue in our first quarter together. Their attention to detail and aggressive follow-up on aged A/R is simply outstanding."</p>
+                                <p class="testimonial-text">"The ROI has been phenomenal. Dr.Medoc's team identified $2.3M in missed revenue in our first quarter together. Their attention to detail and aggressive follow-up on aged A/R is simply outstanding."</p>
                             </div>
                         </div>
                     </div>
@@ -1795,18 +1851,18 @@ nav a {
 
   <div class="faq-list">
   <div class="faq-item">
-    <div class="faq-question">What exactly does Dr Medoc provide?</div>
-    <div class="faq-answer">Dr Medoc provides Expert Medical Billing Solutions. We deploy highly trained, dedicated revenue cycle management teams to handle your billing, claims, and follow-up. This gives your practice a stable, high-performing billing department without the overhead and headaches of internal hiring and turnover.</div>
+    <div class="faq-question">What exactly does Dr.Medoc provide?</div>
+    <div class="faq-answer">Dr.Medoc provides Expert Medical Billing Solutions. We deploy highly trained, dedicated revenue cycle management teams to handle your billing, claims, and follow-up. This gives your practice a stable, high-performing billing department without the overhead and headaches of internal hiring and turnover.</div>
     <div class="faq-toggle">+</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question">How does Dr Medoc benefit my practice's financial health?</div>
+    <div class="faq-question">How does Dr.Medoc benefit my practice's financial health?</div>
     <div class="faq-answer"> We secure your revenue by ensuring faster, higher collections and fewer denials. Our expert teams focus on maximizing cash flow, improving coding accuracy, and maintaining compliance, allowing you to focus completely on patient care.</div>
     <div class="faq-toggle">+</div>
   </div>
   <div class="faq-item">
-    <div class="faq-question">Why should I choose Dr Medoc over hiring my own billing staff? </div>
+    <div class="faq-question">Why should I choose Dr.Medoc over hiring my own billing staff? </div>
     <div class="faq-answer">You choose us for stability, expertise, and guaranteed performance. We eliminate the risk of staff turnover, manage all training and oversight, and ensure specialized expertise in complex areas like appeals and payer rules—all for a streamlined operating cost.</div>
     <div class="faq-toggle">+</div>
   </div>
@@ -1821,17 +1877,17 @@ nav a {
     <div class="faq-toggle">+</div>
   </div>
    <div class="faq-item">
-    <div class="faq-question">How long does it take to start working with Dr Medoc? </div>
+    <div class="faq-question">How long does it take to start working with Dr.Medoc? </div>
     <div class="faq-answer">After the initial consultation and needs assessment, our typical onboarding process—including custom team selection and workflow integration—takes approximately 2 to 4 weeks. This ensures a smooth, non-disruptive transition with zero downtime for your billing cycle.</div>
     <div class="faq-toggle">+</div>
   </div>
   <div class="faq-item">
-    <div class="faq-question">How do I get in touch with Dr Medoc to discuss my needs?	 </div>
+    <div class="faq-question">How do I get in touch with Dr.Medoc to discuss my needs?	 </div>
     <div class="faq-answer"> You can easily reach us by filling out the contact form on our website, emailing us at drmedoc@gmail.com , or calling us directly at +91 6353241438 to schedule a complimentary RCM assessment.</div>
     <div class="faq-toggle">+</div>
   </div>
    <div class="faq-item">
-    <div class="faq-question">What are the charges for Dr Medoc's services? </div>
+    <div class="faq-question">What are the charges for Dr.Medoc's services? </div>
     <div class="faq-answer">Our pricing model is generally performance-based (a percentage of collections), though we offer flexible models tailored to your practice size and specialty. We focus on being the smartest price for premium quality—meaning our service delivers a significant return on investment (ROI) that outweighs the fee.</div>
     <div class="faq-toggle">+</div>
   </div>
@@ -1848,7 +1904,7 @@ nav a {
     <footer>
         <div class="footer-content">
             <div class="footer-main">
-                <div class="footer-brand">Dr Medoc</div>
+                <div class="footer-brand">Dr.Medoc</div>
                 <div class="footer-cta">
                     <h3>LET'S BUILD SOMETHING AMAZING</h3>
                     <a href="#" class="btn-green">Schedule Free Consultation</a>
@@ -1883,7 +1939,7 @@ nav a {
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© 2025 Dr Medoc. All rights reserved.</div>
+                <div>© 2025 Dr.Medoc. All rights reserved.</div>
                 <div class="footer-bottom-links">
                     <a href="#">Twitter</a>
                     <a href="#">LinkedIn</a>
