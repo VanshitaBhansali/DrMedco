@@ -114,18 +114,24 @@ nav a {
 }
 
         /* Hero Section */
-       /* Hero Section */
+        /* Hero Section */
+ /* ================= Hero Section ================= */
 .hero {
   position: relative;
-  text-align: center;
-  padding: 40px 12px 50px;
+  text-align: left;
+  padding: 120px 12px 50px; /* pushes below header */
   background: #fff;
-  overflow: hidden; /* hide moving edges */
+  margin-left: 50px;
+  overflow: hidden;
   color: #000;
   z-index: 1;
+  height: 80vh; /* visible area */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Background image container */
+/* ============= Animated Background ============= */
 .hero::before {
   content: "";
   position: absolute;
@@ -135,32 +141,33 @@ nav a {
   height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0.25;
+  opacity: 0.4;
   z-index: -1;
-  animation: bgCycle 40s infinite ease-in-out, bgMove 15s infinite alternate ease-in-out;
+  animation: bgCycle 40s infinite ease-in-out, bgMove 20s infinite alternate ease-in-out;
 }
 
-/* Headings & paragraphs */
+/* ============= Headings & Paragraphs ============= */
 .hero h1 {
   font-size: 65px;
   font-weight: 700;
   margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 50px;
   max-width: 900px;
   letter-spacing: -0.05em;
-  line-height: 100%;
+  line-height: 110%;
+}
+
+.hero h1 .highlight {
+  color: #28a745; /* green highlight */
 }
 
 .hero p {
-  font-size: 16px;
+  font-size: 18px;
   color: #333;
   line-height: 1.6;
   margin-bottom: 30px;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  word-wrap: break-word;
+  margin-left: 50px;
 }
 
 .happyclient {
@@ -170,35 +177,19 @@ nav a {
   text-align: center;
   max-width: 90%;
   margin: 40px auto 0;
-  word-wrap: break-word;
-  white-space: normal;
   line-height: 1.6;
 }
-
+.btn-primary-started{
+  width:130px;
+  margin-left:50px;
+}
 .happyclient .client-text {
   display: inline-block;
   color: #444;
   margin-left: 8px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 40px;
-  }
-
-  .hero p {
-    font-size: 17px;
-  }
-
-  .happyclient {
-    font-size: 16px;
-    margin-top: 30px;
-    line-height: 1.5;
-  }
-}
-
-/* 🔄 Keyframes: background slideshow */
+/* ============= Background Animations ============= */
 @keyframes bgCycle {
   0%   { background-image: url("images/about\ us.png"); }
   20%  { background-image: url("images/ar.jpg"); }
@@ -208,11 +199,69 @@ nav a {
   100% { background-image: url("images/execute_9640682.png"); }
 }
 
-/* 🌀 Subtle floating motion */
 @keyframes bgMove {
   0%   { transform: scale(1) translate(0, 0); }
   50%  { transform: scale(1.05) translate(-10px, -10px); }
   100% { transform: scale(1) translate(0, 0); }
+}
+
+
+/* ================= Responsive Design ================= */
+
+/* 💻 Tablets */
+@media (max-width: 992px) {
+  .hero {
+    margin-left: 20px;
+    padding: 100px 12px 50px;
+    height: auto;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    margin-left: 20px;
+  }
+
+  .hero p
+   {
+    margin-left: 20px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .happyclient {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+}
+
+/* 📱 Mobile (Portrait) */
+@media (max-width: 576px) {
+  .hero {
+    margin-left: 0;
+    padding: 100px 16px 60px;
+    height: auto;
+    text-align: center;
+  }
+  
+
+  .hero h1 {
+    font-size: 30px;
+    margin-left: 0;
+    max-width: 100%;
+    line-height: 120%;
+  }
+
+  .hero p {
+    font-size: 15px;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .happyclient {
+    font-size: 15px;
+  }
 }
 
 /***********services*************/
@@ -1482,7 +1531,7 @@ nav a {
     Empowering Doctors with Tailored Billing Solutions, from Smart Claim Scrubbers
     to Advanced Reporting and Payment Automation.
   </p>
-  <a href="#" class="btn-primary">Get Started</a>
+  <a href="#" class="btn-primary btn-primary-started">Get Started</a>
 
   <p class="happyclient">
     ⭐ ⭐ ⭐ ⭐ ⭐ <span class="client-text">Over 30+ Happy Clients</span>
@@ -1616,7 +1665,7 @@ nav a {
       <span class="case-study-label">CASE STUDY</span>
       <h2>18% Denial Reduction in 90 Days</h2>
       <p class="case-study-desc">
-        DRMEDOC Healthcare Solutions partnered with a 15-provider practice to reduce claim denials and improve cash flow. 
+        Dr.Medoc Healthcare Solutions partnered with a 15-provider practice to reduce claim denials and improve cash flow. 
         Through streamlined RCM processes, automation, and expert talent, we achieved an 18% reduction in denials within 90 days 
         — without disrupting operations.
       </p>
@@ -1645,7 +1694,7 @@ nav a {
     <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="benefits-header">
-            <h2> Why You'll Love Drmedoc</h2>
+            <h2> Why You'll Love Dr.Medoc</h2>
             <p>At Dr.Medoc, we empower practices through tailored RCM strategies and expert human talent, driving financial efficiency and growth.</p>
         </div>
         <div class="benefits-grid">
