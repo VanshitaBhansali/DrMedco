@@ -8,8 +8,9 @@
 
     <style>
         html, body {
-  width: 100%;
-}
+width: 100%;
+  max-width: 100%;
+  overflow-x: clip; /* ✅ Better alternative to hidden */}
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -377,6 +378,15 @@ nav a {
 .card5 { grid-column: 2 / 4; grid-row: 3; }
 
 @media (max-width: 950px) {
+  .features-title{
+    font-size:1.5rem ;
+  }
+  .feature-alt .title{
+font-size:1.3rem;
+  }
+  .features-subtitle{
+    font-size: 1rem;
+  }
   .features-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -646,7 +656,6 @@ nav a {
   margin-bottom: 30px;
   font-size: 15px;
 }
-
 .case-study-stats {
   display: flex;
   gap: 40px;
@@ -669,7 +678,9 @@ nav a {
   background: #000;
   color: #fff;
   padding: 12px 24px;
-  border-radius: 25px;
+  margin-top: 20px;    /* space from the top */
+  margin-left: 50px;   /* space from the left */
+ border-radius: 25px;
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
@@ -1685,20 +1696,21 @@ nav a {
         — without disrupting operations.
       </p>
 
-      <div class="case-study-stats">
-        <div class="stat">
-          <h3>15+</h3>
-          <p>Provider Practice</p>
-        </div>
-        <div class="stat">
-          <h3>18%</h3>
-          <p>Denial Reduction</p>
-        </div>
-        <div class="stat">
-          <h3>0</h3>
-          <p>Operational Disruption</p>
-        </div>
-      </div>
+    <div class="case-study-stats">
+  <div class="stat">
+    <h3 class="counter" data-target="15">0</h3>
+    <p>Provider Practice</p>
+  </div>
+  <div class="stat">
+    <h3 class="counter" data-target="18">0</h3>
+    <p>Denial Reduction</p>
+  </div>
+  <div class="stat">
+    <h3 class="counter" data-target="0">0</h3>
+    <p>Operational Disruption</p>
+  </div>
+</div>
+
 
       <a href="#" class="btn-view">View All Case Studies</a>
     </div>
@@ -2035,6 +2047,46 @@ navLinks.forEach(link => {
     </script>
 </body>
 </html>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  const speed = 200; // lower = faster
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+          if (counter.getAttribute("data-target") == 15)
+            counter.innerText += "+";
+          if (counter.getAttribute("data-target") == 18)
+            counter.innerText += "%";
+        }
+      };
+      updateCount();
+    });
+  };
+
+  // Trigger only when the section scrolls into view
+  const statsSection = document.querySelector(".case-study-stats");
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      observer.disconnect(); // run once
+    }
+  }, { threshold: 0.5 });
+
+  observer.observe(statsSection);
+});
+</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll(".rolling-counter");
