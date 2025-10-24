@@ -65,8 +65,9 @@ nav a {
 .btn-primary {
   background: #000;
   color: #fff;
-  padding: 10px 24px;
-  border-radius: 25px;
+  display: inline-block;
+  padding: 10px 24px !important;
+  border-radius: 25px !important;
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
@@ -117,13 +118,14 @@ nav a {
         /* Hero Section */
         /* Hero Section */
  /* ================= Hero Section ================= */
+/* ================= Hero Section ================= */
 .hero {
   position: relative;
-  height: 70vh; /* only upper 70% of viewport has image */
+  min-height: calc(100vh - 80px); /* Adjust for sticky header height */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* text appears near bottom of hero */
-  padding: 0 50px 60px; /* bottom padding for text spacing */
+  justify-content: center;
+  padding: 120px 80px 80px; /* extra top padding to clear fixed header */
   color: #000;
   text-align: left;
   overflow: hidden;
@@ -138,23 +140,22 @@ nav a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70%; /* background covers only upper portion */
+  height: 100%;
   background-size: cover;
   background-position: center;
   animation: bgCycle 40s infinite ease-in-out, bgMove 20s infinite alternate ease-in-out;
-  opacity: 0.5;
+  opacity: 0.45;
   z-index: -1;
 }
 
 /* Text content spacing */
 .hero h1 {
-  padding-top:80px;
-  font-size: 60px;
+  font-size: 56px;
   font-weight: 700;
   margin-bottom: 20px;
-  max-width: 800px;
-  letter-spacing: -0.05em;
-  line-height: 110%;
+  max-width: 850px;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   color: #000;
 }
 
@@ -165,31 +166,54 @@ nav a {
 .hero p {
   font-size: 18px;
   color: #333;
-  max-width: 600px;
-  margin-bottom: 30px;
+  max-width: 650px;
+  margin-bottom: 40px;
 }
 
 .btn-primary-started {
-  width: 130px;
-  margin-left: 80px;
+  background: #000;
+  color: #fff;
+  padding: 10px 22px; /* smaller width */
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  display: inline-block; /* ✅ keeps button compact */
+  width: auto !important; /* ✅ force small width */
+  max-width: fit-content; /* ✅ prevents stretching */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* optional subtle depth */
+}
+
+
+
+.btn-primary-started:hover {
+  background: #333;
 }
 
 /* Happy clients text */
 .happyclient {
   font-size: 17px;
-  text-align: center;
   color: #333;
-  margin-top: 20px;
+  margin-top: 25px;
+  text-align: left; /* aligned with button */
+}
+
+.happyclient .client-text {
+  margin-left: 8px;
+  font-weight: 500;
+  text-wrap: wrap;
 }
 
 /* ============= Background Animations ============= */
 @keyframes bgCycle {
-  0%   { background-image: url("images/about us.png"); }
-  20%  { background-image: url("images/ar.jpg"); }
-  40%  { background-image: url("images/biller.jpg"); }
-  60%  { background-image: url("images/coding.jpg"); }
-  80%  { background-image: url("images/credentiality.jpg"); }
-  100% { background-image: url("images/execute_9640682.png"); }
+  0%   { background-image: url("images/portrait-call-center-worker-accompanied-by-her-team-smiling-customer-support-operator-work.jpg"); }
+  20%  { background-image: url("images/portrait-smiling-customer-service-representative-working-table.jpg"); }
+  40%  { background-image: url("images/portrait-call-center-worker-accompanied-by-her-team-smiling-customer-support-operator-work.jpg"); }
+  60%  { background-image: url("images/portrait-smiling-customer-service-representative-working-table.jpg"); }
+  80%  { background-image: url("images/portrait-call-center-worker-accompanied-by-her-team-smiling-customer-support-operator-work.jpg"); }
+  100% { background-image: url("images/portrait-smiling-customer-service-representative-working-table.jpg"); }
 }
 
 @keyframes bgMove {
@@ -201,14 +225,9 @@ nav a {
 /* ============= Responsive Tweaks ============= */
 @media (max-width: 992px) {
   .hero {
-    height: auto;
-    padding: 60px 20px;
-    justify-content: center;
+    padding: 120px 30px 60px;
     text-align: center;
-  }
-
-  .hero::before {
-    height: 60%;
+    align-items: center;
   }
 
   .hero h1 {
@@ -218,25 +237,33 @@ nav a {
   .hero p {
     font-size: 16px;
   }
+
+  .btn-primary-started {
+    margin: 0 auto;
+  }
+
+  .happyclient {
+    text-align: center;
+  }
 }
 
 @media (max-width: 576px) {
   .hero {
-    height: auto;
-    padding: 80px 16px 60px;
-  }
-
-  .hero::before {
-    height: 55%;
+    padding: 120px 20px 60px;
   }
 
   .hero h1 {
     font-size: 28px;
-    line-height: 120%;
+    line-height: 1.2;
   }
 
   .hero p {
     font-size: 15px;
+  }
+
+  .btn-primary-started {
+    padding: 12px 28px;
+    font-size: 14px;
   }
 
   .happyclient {
@@ -1530,13 +1557,17 @@ font-size:1.3rem;
 
 
     <!-- Hero Section -->
-   <section class="hero">
-  <h1>Transformation, Not Just Transaction: The Future of  <span class="highlight">Medical Billing</span></h1>
+<!-- Hero Section -->
+<section class="hero">
+  <h1>
+    Transformation, Not Just Transaction: The Future of
+    <span class="highlight">Medical Billing</span>
+  </h1>
   <p>
     Empowering Doctors with Tailored Billing Solutions, from Smart Claim Scrubbers
     to Advanced Reporting and Payment Automation.
   </p>
-  <a href="#" class="btn-primary btn-primary-started">Get Started</a>
+  <a href="#" class="btn-primary-started">Get Started</a>
 
   <p class="happyclient">
     ⭐ ⭐ ⭐ ⭐ ⭐ <span class="client-text">Over 30+ Happy Clients</span>
