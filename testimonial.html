@@ -65,13 +65,26 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.logo a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 700;
-  font-size: 18px;
+/* Logo wrapper */
+.logo {
+  display: flex;
+  align-items: center;   /* centers logo vertically in header */
 }
 
+/* Anchor around logo */
+.logo a {
+  display: inline-flex;  /* so flex works on the image too */
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Logo image */
+.logo img {
+  display: block;
+  height: 30px;          /* adjust size as you like (32–40px works well) */
+  width: auto;           /* keeps aspect ratio */
+  object-fit: contain;
+}
 /* Desktop nav */
 nav ul {
   display: flex;
@@ -600,7 +613,7 @@ nav a {
       <!-- Header/Navigation -->
   <header>
   <div class="logo">
-    <a href="index.html">Dr.Medoc</a>
+    <a href="index.html"><img src="images/PNG-01.png" alt="Robot" height="50" width="50"></a>
   </div>
 
   <nav>
